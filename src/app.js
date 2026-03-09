@@ -1,17 +1,14 @@
+//src/app.js
 /*Arquivo de configuração do express*/
 
 const express = require("express");
+
+const routes = require("./routes");
 
 const app = express();
 
 app.use(express.json());
 
-// Endpoint para Health Check
-app.get("/health", (req, res) => {
-  res.status(200).json({
-    status: "ok",
-    message: "API running"
-  });
-});
+app.use("/", routes);
 
 module.exports = app;
