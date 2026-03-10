@@ -29,9 +29,14 @@ const updateByOrderId = async (orderId, updateData) => {
   );
 };
 
+const deleteByOrderId = async (orderId) => {
+  return await Order.findOneAndDelete({ orderId });
+};
+
 module.exports = {
   createOrder,
   findByOrderId,
   findAll,
-  updateByOrderId
+  updateByOrderId,
+  deleteByOrderId
 };

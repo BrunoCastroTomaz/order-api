@@ -21,9 +21,14 @@ const updateOrder = async (orderId, orderInput) => {
   return await orderRepository.updateByOrderId(orderId, mappedOrder);
 };
 
+const deleteOrder = async (orderId) => {
+  return await orderRepository.deleteByOrderId(orderId);
+};
+
 module.exports = {
   createOrder,
   getOrderById,
   listOrders,
-  updateOrder
+  updateOrder,
+  deleteOrder
 };
