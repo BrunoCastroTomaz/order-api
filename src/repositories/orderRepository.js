@@ -21,8 +21,17 @@ const findAll = async (page, limit) => {
     .sort({ creationDate: -1 });
 };
 
+const updateByOrderId = async (orderId, updateData) => {
+  return await Order.findOneAndUpdate(
+    { orderId },
+    updateData,
+    { new: true } //faz o MongoDB retornar o documento atualizado
+  );
+};
+
 module.exports = {
   createOrder,
   findByOrderId,
-  findAll
+  findAll,
+  updateByOrderId
 };

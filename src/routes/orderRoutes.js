@@ -9,4 +9,6 @@ router.get("/order/list", orderController.listOrders);
 
 router.get("/order/:orderId", orderController.getOrderById);
 
+router.put("/order/:orderId", orderController.updateOrder);
+
 module.exports = router;

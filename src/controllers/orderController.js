@@ -53,8 +53,32 @@ const listOrders = async (req, res) => {
   }
 };
 
+
+const updateOrder = async (req, res) => {
+  try {
+    const { orderId } = req.params;
+
+    const order = await orderService.updateOrder(orderId, req.body);
+
+    if (!order) {
+      return res.status(404).json({
+        message: "Order not found"
+      });
+    }
+
+    return res.status(200).json(order);
+  } catch (error) {
+    console.error(error);
+
+    return res.status(500).json({
+      message: "Error updating order"
+    });
+  }
+};
+
 module.exports = {
   createOrder,
   getOrderById,
-  listOrders
+  listOrders,
+  updateOrder
 };

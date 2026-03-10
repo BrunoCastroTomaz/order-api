@@ -15,8 +15,15 @@ const listOrders = async (page, limit) => {
   return await orderRepository.findAll(page, limit);
 };
 
+const updateOrder = async (orderId, orderInput) => {
+  const mappedOrder = mapOrderInputToModel(orderInput);
+
+  return await orderRepository.updateByOrderId(orderId, mappedOrder);
+};
+
 module.exports = {
   createOrder,
   getOrderById,
-  listOrders
+  listOrders,
+  updateOrder
 };
