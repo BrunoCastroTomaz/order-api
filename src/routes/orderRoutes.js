@@ -9,6 +9,44 @@ const { orderSchema } = require("../validations/orderValidations");
 
 const router = express.Router();
 
+/**
+ * @swagger
+ * /order:
+ *   post:
+ *     summary: Criar novo pedido
+ *     tags: [Orders]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               numeroPedido:
+ *                 type: string
+ *               valorTotal:
+ *                 type: number
+ *               dataCriacao:
+ *                 type: string
+ *               items:
+ *                 type: array
+ *                 items:
+ *                   type: object
+ *                   properties:
+ *                     idItem:
+ *                       type: string
+ *                     quantidadeItem:
+ *                       type: number
+ *                     valorItem:
+ *                       type: number
+ *     responses:
+ *       201:
+ *         description: Pedido criado
+ */
+
+
 router.post(
   "/order",
   authenticate,
