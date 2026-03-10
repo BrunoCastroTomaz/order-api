@@ -25,7 +25,7 @@ const updateByOrderId = async (orderId, updateData) => {
   return await Order.findOneAndUpdate(
     { orderId },
     updateData,
-    { new: true } //faz o MongoDB retornar o documento atualizado
+    { returnDocument: "after" } //faz o MongoDB retornar o documento atualizado
   );
 };
 
