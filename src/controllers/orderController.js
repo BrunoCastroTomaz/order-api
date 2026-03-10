@@ -36,7 +36,25 @@ const getOrderById = async (req, res) => {
   }
 };
 
+const listOrders = async (req, res) => {
+  try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+
+    const orders = await orderService.listOrders(page, limit);
+
+    return res.status(200).json(orders);
+  } catch (error) {
+    console.error(error);
+
+    return res.status(500).json({
+      message: "Error listing orders"
+    });
+  }
+};
+
 module.exports = {
   createOrder,
-  getOrderById
+  getOrderById,
+  listOrders
 };

@@ -11,7 +11,12 @@ const getOrderById = async (orderId) => {
   return await orderRepository.findByOrderId(orderId);
 };
 
+const listOrders = async (page, limit) => {
+  return await orderRepository.findAll(page, limit);
+};
+
 module.exports = {
   createOrder,
-  getOrderById
+  getOrderById,
+  listOrders
 };
