@@ -3,6 +3,7 @@
 /* Arquivo central de rotas */
 
 const express = require("express");
+const orderRoutes = require("./orderRoutes");
 
 const router = express.Router();
 
@@ -13,5 +14,7 @@ router.get("/health", (req, res) => {
     message: "API running"
   });
 });
+
+router.use("/", orderRoutes);
 
 module.exports = router;
