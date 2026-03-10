@@ -5,6 +5,11 @@ const createOrder = async (orderData) => {
   return await order.save();
 };
 
+const findByOrderId = async (orderId) => {
+  return await Order.findOne({ orderId });
+};
+
 module.exports = {
-  createOrder
+  createOrder,
+  findByOrderId
 };

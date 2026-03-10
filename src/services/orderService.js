@@ -7,6 +7,11 @@ const createOrder = async (orderInput) => {
   return await orderRepository.createOrder(mappedOrder);
 };
 
+const getOrderById = async (orderId) => {
+  return await orderRepository.findByOrderId(orderId);
+};
+
 module.exports = {
-  createOrder
+  createOrder,
+  getOrderById
 };
