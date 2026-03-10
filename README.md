@@ -1,5 +1,7 @@
 # Order API
 
+Node.js • Express • MongoDB • JWT • Joi • Swagger
+
 API REST desenvolvida em **Node.js + MongoDB** para gerenciamento de pedidos.
 
 Este projeto foi desenvolvido como parte de um **teste técnico para a posição de Analista de Sistemas Jr** na empresa **Jitterbit** 
@@ -66,6 +68,12 @@ MONGODB_URI=mongodb+srv://user:password@cluster.mongodb.net/orderdb
 JWT_SECRET=secret
 ```
 
+Ou utilize o arquivo de exemplo:
+
+```
+cp .env.example .env
+```
+
 ---
 
 # Executando o projeto
@@ -116,6 +124,15 @@ Depois inclua o token no header das requisições:
 ```
 Authorization: Bearer JWT_TOKEN
 ```
+
+---
+
+# Credenciais de teste
+
+Para facilitar a avaliação da API, utilize as seguintes credenciais:
+
+username: admin  
+password: admin123
 
 ---
 
@@ -179,13 +196,17 @@ curl -X POST http://localhost:3000/order \
 
 # Documentação da API
 
-A documentação interativa está disponível em:
+A API possui documentação interativa utilizando Swagger.
 
-```
+Após iniciar o servidor, acesse:
+
 http://localhost:3000/api-docs
-```
 
-Utilizando **Swagger UI** é possível testar todos os endpoints diretamente pelo navegador.
+Através dessa interface é possível:
+
+- visualizar todos os endpoints
+- testar requisições diretamente pelo navegador
+- autenticar utilizando JWT
 
 ---
 

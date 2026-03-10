@@ -11,7 +11,7 @@ const login = async (req, res, next) => {
     const user = {
       id: 1,
       username: "admin",
-      passwordHash: await bcrypt.hash("admin123", 10)
+      passwordHash: "$2b$10$fcff8u2nEfd.kgE9Qs0v/ujjakzSBpxSBffIUfLzXnMfZeS7nG3me"
     };
 
     const passwordMatch = await bcrypt.compare(password, user.passwordHash);
